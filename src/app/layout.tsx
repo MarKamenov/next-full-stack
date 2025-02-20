@@ -1,5 +1,6 @@
 // import ErrorWrapper from "./error-wrapper";
 import { Metadata } from "next";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./styles.css";
 
 export const metadata: Metadata = {
@@ -17,27 +18,30 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <header
-          style={{
-            backgroundColor: "lightblue",
-            padding: "1rem",
-          }}
-        >
-          <p>Header</p>
-        </header>
-        {/* <ErrorWrapper> */}
-        {children}
-        {/* </ErrorWrapper> */}
-        <footer
-          style={{
-            backgroundColor: "ghostwhite",
-            padding: "1rem",
-          }}
-        >
-          <p>Footer</p>
-        </footer>
-      </body>
+      <ThemeProvider>
+        <body>
+          <header
+            style={{
+              backgroundColor: "lightblue",
+              padding: "1rem",
+            }}
+          >
+            <p>Header</p>
+          </header>
+          {/* <ErrorWrapper> */}
+          {children}
+          {/* </ErrorWrapper> */}
+          <footer
+            style={{
+              backgroundColor: "ghostwhite",
+              padding: "1rem",
+            }}
+          >
+            <p>Footer</p>
+          </footer>
+        </body>
+      </ThemeProvider>
+
     </html>
   );
 }
