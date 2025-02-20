@@ -6,6 +6,11 @@ export const metadata: Metadata = {
         absolute: 'Blog',
     }
 }
-const Blog = () => <h1>Welcome Blog</h1>
+const Blog = async () => {
+    await new Promise(resolve => {
+        setTimeout(() => { resolve('resolved') }, 200)
+    })
+    return (<h1>Welcome Blog</h1>)
+}
 
 export default Blog

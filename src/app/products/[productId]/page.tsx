@@ -1,16 +1,16 @@
 import { Metadata } from "next";
 
 type ProductDetailsPageParam = {
-    params: {
-        productId: Promise<string>;
-    }
+    params: Promise<{
+        productId: string
+    }>
 
 };
 
 export const generateMetadata = async ({
     params,
 }: ProductDetailsPageParam): Promise<Metadata> => {
-    const productId = await params.productId;
+    const { productId } = await params;
     const title = await new Promise((resolve) => {
         setTimeout(() => {
             resolve(`iPhone ${productId}`);
@@ -23,9 +23,9 @@ export const generateMetadata = async ({
 
 const ProductDetails = async ({ params }: ProductDetailsPageParam) => {
 
-    const paramId = await params.productId;
+    const { productId } = await params;
     return (
-        <h1>Welcome ProductDetails {paramId}</h1>
+        <h1>Welcome ProductDetails {productId}</h1>
     )
 }
 export default ProductDetails
