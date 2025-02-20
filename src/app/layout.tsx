@@ -1,5 +1,6 @@
 // import ErrorWrapper from "./error-wrapper";
 import { Metadata } from "next";
+import "./styles.css";
 
 export const metadata: Metadata = {
   title: {
