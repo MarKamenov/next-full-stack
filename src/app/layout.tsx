@@ -2,6 +2,7 @@
 import { Metadata } from "next";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./styles.css";
+import Search from "@/components/search";
 
 export const metadata: Metadata = {
   title: {
@@ -27,6 +28,7 @@ export default function RootLayout({
             }}
           >
             <p>Header</p>
+            <Search />
           </header>
           {/* <ErrorWrapper> */}
           {children}
