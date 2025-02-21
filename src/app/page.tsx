@@ -1,3 +1,4 @@
+import { Counter } from "@/components/counter";
 import { Metadata } from "next";
 import Link from "next/link"
 
@@ -13,6 +14,7 @@ export const generateMetadata = async (): Promise<Metadata> => {
 
 const Home = () => <div className="page-wrapper">
     <h1>Welcome home!</h1>
+    <Counter />
     <div className="links-wrapper">
         <ul className="flex">
             <li className="mr-6">

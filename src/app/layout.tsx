@@ -1,8 +1,10 @@
 // import ErrorWrapper from "./error-wrapper";
 import { Metadata } from "next";
+import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./styles.css";
 import Search from "@/components/search";
+import { Navigation } from "@/components/navigation";
 
 export const metadata: Metadata = {
   title: {
@@ -18,32 +20,34 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <ThemeProvider>
-        <body>
-          <header
-            style={{
-              backgroundColor: "lightblue",
-              padding: "1rem",
-            }}
-          >
-            <p>Header</p>
-            <Search />
-          </header>
-          {/* <ErrorWrapper> */}
-          {children}
-          {/* </ErrorWrapper> */}
-          <footer
-            style={{
-              backgroundColor: "ghostwhite",
-              padding: "1rem",
-            }}
-          >
-            <p>Footer</p>
-          </footer>
-        </body>
-      </ThemeProvider>
+    <ClerkProvider>
+      <html lang="en">
+        <ThemeProvider>
+          <body>
+            <header
+              style={{
+                backgroundColor: "lightblue",
+                padding: "1rem",
+              }}
+            >
+              <Navigation />
+              <Search />
+            </header>
+            {/* <ErrorWrapper> */}
+            {children}
+            {/* </ErrorWrapper> */}
+            <footer
+              style={{
+                backgroundColor: "ghostwhite",
+                padding: "1rem",
+              }}
+            >
+              <p>Footer</p>
+            </footer>
+          </body>
+        </ThemeProvider>
+      </html>
+    </ClerkProvider>
 
-    </html>
   );
 }
